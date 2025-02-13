@@ -1,7 +1,32 @@
 
 package com.hans0924.fsd;
 
-import com.hans0924.fsd.constants.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.hans0924.fsd.constants.ClientConstants;
+import com.hans0924.fsd.constants.GlobalConstants;
+import com.hans0924.fsd.constants.ManageVarType;
+import com.hans0924.fsd.constants.MetarSource;
+import com.hans0924.fsd.constants.NetworkConstants;
+import com.hans0924.fsd.constants.ProtocolConstants;
+import com.hans0924.fsd.constants.ServerConstants;
 import com.hans0924.fsd.manager.Manage;
 import com.hans0924.fsd.model.Certificate;
 import com.hans0924.fsd.model.Client;
@@ -16,24 +41,6 @@ import com.hans0924.fsd.process.network.ClientInterface;
 import com.hans0924.fsd.process.network.ServerInterface;
 import com.hans0924.fsd.process.network.SystemInterface;
 import com.hans0924.fsd.support.Support;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 /**
  * @author Hanshuo Zeng
@@ -265,9 +272,9 @@ public class Fsd {
 
     private void configMyServer() {
         int mode = 0;
-        String serverIdent = null, serverName = null;
-        String serverMail = null, serverHostName = null;
-        String serverLocation = null;
+        String serverIdent = "103fsd", serverName = "103rd FSD Server";
+        String serverMail = "103rd@randomnotrealemail.com", serverHostName = "localhost";
+        String serverLocation = "KBDL";
         ConfigEntry entry;
         ConfigGroup system = configManager.getGroup("system");
         if (system != null) {
